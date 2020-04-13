@@ -1,0 +1,15 @@
+{{ block "header.html" . }}{{ end }}
+
+<ul class="list-group ml-2">
+{{ range $article := .articles }}
+    <li>{{ .Date }} - <a href="/{{ .DirName }}/{{ .Filename }}.html">{{ .Title }}</a></li>
+{{ end }}
+
+{{ if .totalCount }}
+<li class="list-unstyled">
+    <a href="/archive">>>> Show all({{ .totalCount }} articles)</a>
+</li>
+</ul>
+{{ end }}
+
+{{ block "footer.html" . }}{{ end }}

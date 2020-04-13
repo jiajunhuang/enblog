@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cmn">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- iOS -->
+        <meta name="apple-mobile-web-app-title" content="Jiajun's Blog">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-status-bar-style" content="#F8F9FA">
+        <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+        <!-- Android -->
+        <link rel="shortcut icon" href="/static/apple-touch-icon.png">
+        <meta name="theme-color" content="#F8F9FA">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
+
+        <!-- meta -->
+        {{ if .keywords }}
+        <meta name="keywords" content="{{ .keywords }}">
+        {{ end }}
+        {{ if .description }}
+        <meta name="description" content="{{ .description }}">
+        {{ end }}
+
+        <title>
+            {{ if .title }}{{ .title }} - {{ end }}{{ if .subtitle }}{{ .subtitle }} - {{ end }}Jiajun's Blog
+        </title>
+        <style>
+            img {
+                max-width: 100%;
+            }
+            li, p, a {
+                word-break: break-all;
+            }
+            blockquote {
+                background-color: #EEDFF9;
+                margin-left: 1rem;
+                padding: 0.5rem 0;
+            }
+            blockquote p {
+                margin: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            {{ if not .isBlogApp }}
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">Jiajun's Blog</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <form class="form-inline mr-auto" action="/search" method="POST">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/aboutme">About Me</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            {{ end }}
+
+            <main role="main" class="container mt-2">
+                <div id="body" class="row">
+                    <div class="col-md-9">
+<!--</html>-->

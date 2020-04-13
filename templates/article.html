@@ -1,0 +1,44 @@
+{{ block "header.html" . }}{{ end }}
+
+{{ .content }}
+
+{{ if .recommends }}
+<hr />
+<h5>更多文章</h5>
+{{ range $recommend := .recommends }}
+    <li style="margin-left:2.5rem"><a href="/{{ .DirName }}/{{ .Filename }}.html">{{ .Title }}</a></li>
+{{ end }}
+<hr />
+{{ end }}
+
+{{ if not .isBlogApp }}
+<br />
+
+<div class="text-center">
+    <button id="load_disqus_thread" type="button" class="btn btn-info">加载评论</button>
+</div>
+<div id="disqus_thread"></div>
+<script>
+window.onload = function () {
+    $("#load_disqus_thread").click(function() {
+        var disqus_config = function () {
+            var PAGE_IDENTIFIER = window.location.pathname.split(/[?#]/)[0];
+            var PAGE_URL = "https://blog.jiajunhuang.com" + PAGE_IDENTIFIER;
+
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://blog-fhukwbah7t.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+
+        // 移除这个button
+        $("#load_disqus_thread").remove();
+    });
+}
+</script>
+{{ end }}
+{{ block "footer.html" . }}{{ end }}

@@ -1,0 +1,24 @@
+- hosts: blog
+  remote_user: root
+  tasks:
+    - name: generate README.md
+      local_action: shell python gen_catalog.py
+
+    - name: commit and push to github
+      local_action: shell git add . && git commit -m "sync at `date`" && git push || true
+
+    - name: compile binary
+      local_action: shell go build -o enblog
+
+    - name: sync code & articles
+      synchronize:
+        src: ./
+        dest: /data/enblog/code/
+        recursive: yes
+        delete: yes
+        rsync_opts:
+          - "--chown=www-data"
+          - "--exclude=.git"
+
+    - name: reload blog process
+      shell: supervisorctl update && supervisorctl restart enblog

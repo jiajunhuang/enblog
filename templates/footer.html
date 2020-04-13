@@ -1,0 +1,67 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="cmn">-->
+    <!--<head>-->
+    <!--</head>-->
+    <!--<body>-->
+        <!--<div class="container">-->
+            <!--<main role="main" class="container">-->
+                <!--<div id="body" class="row">-->
+                    <!--<div class="col-md-9">-->
+                    </div>
+                    {{ if not .isBlogApp }}
+                    <div class="col-md-3">
+                        <div class="card mt-2">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="/rss" class="card-link">
+                                        <img src="/static/rss.png" >
+                                        RSS
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        {{ if .topArticles }}
+                        <div class="card mt-2">
+                            <div class="card-header">
+                                Top on this site
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                {{ range $topArticle := .topArticles }}
+                                    <li class="list-group-item"><a href="{{ .URLPath }}">{{ .Title }}</a></li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </main>
+
+            <footer class="footer mt-2 mb-2">
+                <span class="text-muted">
+                    <p><a href="https://github.com/jiajunhuang">@jiajunhuang</a> 2015-2020, All Rights Reserved</a></p>
+                </span>
+            </footer>
+        </div>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79619009-1"></script>
+        <script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-79619009-1');
+		});
+        </script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha256-fzFFyH01cBVPYzl16KT40wqjhgPtq6FFUB6ckN2+GGw=" crossorigin="anonymous"></script>
+        <script>
+            $(function() { $('table').addClass('table table-bordered');})
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/solarized-light.min.css" integrity="sha256-WYJU0xxU/YMhVBfwHlz/hFemLIHoVsfIClbaksqOWvk=" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>
