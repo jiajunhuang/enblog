@@ -2,7 +2,7 @@
 
 > Stand on the shoulders of giants
 
-My name is `Jiajun Huang`, I previously work on DJI, and now in VAKE. I use `Python` + `Golang` for most in work,
+My name is `Jiajun Huang`, I previously work on DJI, and now in VANKE. I use `Python` + `Golang` for most in work,
 and a little bit `C` in my spare time.
 
 Here is what I've done in my spare time:
