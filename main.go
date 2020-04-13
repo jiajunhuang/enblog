@@ -92,6 +92,10 @@ func (a Articles) RandomN(n int) Articles {
 		return nil
 	}
 
+	if len(a) < n {
+		return nil
+	}
+
 	length := len(a)
 
 	pos := rand.Intn(length - n)
