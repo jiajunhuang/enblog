@@ -259,13 +259,17 @@ func LoadMDs(dirname string) Articles {
 // IndexHandler 首页
 func IndexHandler(c *gin.Context) {
 	topArticles := getTopVisited(15)
+	indexLength := len(articles)
+	if indexLength >= 100 {
+		indexLength = 100
+	}
 	c.HTML(
 		http.StatusOK, "index.html", gin.H{
 			"isBlogApp":   isBlogApp(c),
-			"articles":    articles[:100],
+			"articles":    articles[:indexLength],
 			"totalCount":  len(articles),
-			"keywords":    "Golang,Python,Go语言,Dart,Android,安卓,Kotlin,分布式,高并发,Haskell,C,微服务,软件工程,源码阅读,源码分析",
-			"description": "享受技术带来的快乐~分布式系统/高并发处理/Golang/Python/Haskell/C/微服务/Android/安卓/Kotlin/软件工程/源码阅读与分析",
+			"keywords":    "Golang,Python,Distributed System,High Concurrency,Haskell,C,MicroService,Code Analysis",
+			"description": "Enjoy Programming~Distributed System,High Concurrency/Golang/Python/Haskell/C/MicroService/Code Analysis",
 			"topArticles": topArticles,
 		},
 	)
@@ -277,8 +281,8 @@ func ArchiveHandler(c *gin.Context) {
 		http.StatusOK, "index.html", gin.H{
 			"isBlogApp":   isBlogApp(c),
 			"articles":    articles,
-			"keywords":    "Golang,Python,Go语言,Dart,Android,安卓,Kotlin,分布式,高并发,Haskell,C,微服务,软件工程,源码阅读,源码分析",
-			"description": "享受技术带来的快乐~分布式系统/高并发处理/Golang/Python/Haskell/C/微服务/Android/安卓/Kotlin/软件工程/源码阅读与分析",
+			"keywords":    "Golang,Python,Distributed System,High Concurrency,Haskell,C,MicroService,Code Analysis",
+			"description": "Enjoy Programming~Distributed System,High Concurrency/Golang/Python/Haskell/C/MicroService/Code Analysis",
 		},
 	)
 }
