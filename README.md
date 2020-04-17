@@ -6,7 +6,7 @@ Stand on the shoulders of giants
 
 ## Table of Contents
 
-- 2020/04/13 - [Fix problems with Windows guest on virt manager(with KVM)](https://blog.jiajunhuang.com/articles/2020_04_13-hello_world.md.html)
+- 2020/04/13 - [Fix problems with Windows guest on virt manager(with KVM)](https://blog.jiajunhuang.com/articles/2020_04_13-kvm_faq.md.html)
 
 
 
