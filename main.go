@@ -343,24 +343,9 @@ func ArticleHandler(c *gin.Context) {
 	renderArticle(c, http.StatusOK, urlPath, "", 15)
 }
 
-// TutorialPageHandler 教程index
-func TutorialPageHandler(c *gin.Context) {
-	renderArticle(c, http.StatusOK, "articles/tutorial.md", "", 0)
-}
-
 // AboutMeHandler 关于我
 func AboutMeHandler(c *gin.Context) {
 	renderArticle(c, http.StatusOK, "articles/aboutme.md", "", 0)
-}
-
-// FriendsHandler 友链
-func FriendsHandler(c *gin.Context) {
-	renderArticle(c, http.StatusOK, "articles/friends.md", "", 0)
-}
-
-// AppHandler App页面
-func AppHandler(c *gin.Context) {
-	renderArticle(c, http.StatusOK, "articles/app.md", "", 0)
 }
 
 // NotFoundHandler 404
